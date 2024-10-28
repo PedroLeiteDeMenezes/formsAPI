@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "root",
+    "password": "geladeira2017*",
+    "database": "formsAPI",
+    "host": "localhost",
+    "dialect": "mariadb",
+    "port": 3307,
+    "migrations-path": "src/migrations"
+  },
+  "test": {
+    "username": "root",
+    "password": "geladeira2017*",
+    "database": "formsAPI_test",
+    "host": "localhost",
+    "dialect": "mariadb",
+    "port": 3307
+  },
+  "production": {
+    "username": "root",
+    "password": "geladeira2017*",
+    "database": "formsAPI",
+    "host": "localhost",
+    "dialect": "mariadb",
+    "port": 3307
+  }
+}

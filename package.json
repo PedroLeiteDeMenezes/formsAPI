@@ -1,0 +1,30 @@
+{
+  "name": "nome-do-projeto",
+  "version": "1.0.0",
+  "description": "Descrição do projeto",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --exec  src/server.ts",
+    "start": "ts-node ./server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.21.1",
+    "mariadb": "^3.4.0",
+    "mysql2": "^3.11.3",
+    "nodemon": "^3.1.7",
+    "sequelize": "^6.37.5",
+    "sequelize-typescript": "^2.1.6",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@types/sequelize": "^4.28.10",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

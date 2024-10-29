@@ -1,9 +1,6 @@
- export interface IUser {
-    id: number;
-    firstName: String;
-    lastName: String;
-    email: String;
-    password_hash: String;
-    createdAt?: Date;
-    updatedAt?: Date;
- }
+export interface IUser {
+  firstName: string; 
+  lastName: string; 
+  email: string; 
+  password_hash: string; 
+}

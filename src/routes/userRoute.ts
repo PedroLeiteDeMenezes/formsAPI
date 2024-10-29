@@ -1,9 +1,11 @@
- import { Router } from 'express';
- import UserPost from '../controllers/UserController/Post'
+import { Router } from 'express';
+import PostUser from '../controllers/UserController/Post';
+import GetId from '../controllers/UserController/get';
 
- const router = Router()
-
- router.post('/', UserPost.post)
+const router = Router();
 
 
- export default router;
+router.post('/', PostUser.post);
+router.get('/:id', GetId.get);
+
+export default router;

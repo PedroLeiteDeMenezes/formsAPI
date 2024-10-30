@@ -3,7 +3,7 @@ import User from '../../models/user';
 import GetuserID from '../../validations/UserValidations/GetUser'
 
 class GetId {
-  public static async get(req: Request, res:Response){
+  public static async get(req: Request, res:Response): Promise<void>{
     try{
       const userId = req.params.id
       console.log(`User ID: ${userId}`);
@@ -12,13 +12,13 @@ class GetId {
       const user = await getUser.validate(userId)
       
       if(!user){
-        return res.status(404).json({ message: 'User not found'})
+        res.status(404).json({ message: 'User not found'})
       }
       
-      return res.json(getUser)
+      res.json(user)
     }catch(error){
       console.log("Error a get user id", error);
-      return res.status(500).json({error: 'Internal server error'})
+       res.status(500).json({error: 'Internal server error'})
     }
   }
 }

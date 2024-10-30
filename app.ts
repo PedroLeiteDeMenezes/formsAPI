@@ -37,7 +37,7 @@ sequelize.sync().then(() => {
 });
 
 // Rotas
-app.use('/user', userRoutes);
+app.use('/users', userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor escutando na porta ${PORT}`);

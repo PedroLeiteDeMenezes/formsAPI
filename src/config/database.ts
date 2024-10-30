@@ -10,7 +10,7 @@ const config: { [key: string]: SequelizeOptions } = {
     database: process.env.DATABASE,
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT || '3306', 10),
-    dialect: 'mariadb', // Dialect explicitamente especificado
+    dialect: 'mariadb', 
     models: [__dirname + '/../models']
   },
   production: {

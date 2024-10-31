@@ -1,9 +1,9 @@
-// sequelize.config.js
-const { resolve } = require('path');
+const path = require('path');
+
 
 module.exports = {
-  'migrations-path': resolve(__dirname, 'src', 'database', 'migrations'), // caminho para suas migrações
-  'models-path': resolve(__dirname, 'src', 'models'), // caminho para seus modelos
-  'seeders-path': resolve(__dirname, 'src', 'database', 'seeds'), // caminho para seus seeders
-  config: resolve(__dirname, 'dist', 'config', 'database.js'), // caminho para seu arquivo de configuração
+  config: path.resolve(__dirname, 'src', 'config', 'config.json'), 
+  'migrations-path': path.resolve(__dirname,'dist', 'database', 'migrations'), 
+  'models-path': path.resolve(__dirname, 'src', 'models'),
+  'seeders-path': path.resolve(__dirname, 'src', 'database', 'seeds') 
 };

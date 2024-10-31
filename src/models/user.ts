@@ -1,6 +1,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { IUser } from '../interface/IUser';
 import bcryptjs from 'bcryptjs'
+import { iUserPermissions } from '../interface/Ipermissions';
 
 class User extends Model<IUser> implements IUser {
   public id!: number 
@@ -9,6 +10,7 @@ class User extends Model<IUser> implements IUser {
   public email!: string;
   public password_hash!: string;
   public password?: string;
+  public permissions!: iUserPermissions ;
 
   static initialize(sequelize: Sequelize) {
     User.init(
@@ -38,8 +40,12 @@ class User extends Model<IUser> implements IUser {
           type: DataTypes.VIRTUAL,
           validate: {
             len: [6, 50]
-          }
-        }
+          },
+        },
+        permissions: {
+          type: DataTypes.JSON, 
+          allowNull: false,
+        },
       },
       {
         sequelize,

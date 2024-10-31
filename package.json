@@ -4,8 +4,8 @@
   "description": "Descrição do projeto",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon --watch 'src/**/*.ts' --exec  src/server.ts",
-    "start": "ts-node ./server.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec  server.ts",
+    "start": "ts-node dist/server.js",
     "build": "tsc"
   },
   "dependencies": {
@@ -18,17 +18,21 @@
     "mysql2": "^3.11.3",
     "nodemon": "^3.1.7",
     "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.3.0",
     "sequelize-typescript": "^2.1.6",
     "tsc": "^2.0.4"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/connect": "^3.4.38",
+    "@types/continuation-local-storage": "^3.2.7",
+    "@types/dotenv": "^6.1.1",
+    "@types/geojson": "^7946.0.14",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^16.0.0",
-    "@types/sequelize": "^4.28.10",
-    "sequelize-cli": "^6.2.0",
+    "@types/sequelize": "^4.28.20",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.0-dev.20241031"
   }
 }

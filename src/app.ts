@@ -1,7 +1,7 @@
 import express from 'express';
 import { Sequelize } from 'sequelize';
-import User from './src/models/user'; // Importe seu modelo User
-import userRoutes from './src/routes/userRoute';
+import User from '../src/models/user'; // Importe seu modelo User
+import userRoutes from '../src/routes/userRoute';
 import dotenv from 'dotenv';
 
 // Carrega as variáveis de ambiente do arquivo .env

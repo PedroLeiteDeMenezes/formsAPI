@@ -1,3 +1,5 @@
+import { iUserPermissions } from './Ipermissions';
+
 export interface IUser {
   id?: number;
   firstName: string; 
@@ -5,4 +7,5 @@ export interface IUser {
   email: string; 
   password_hash: string; 
   password?: string;
+  permissions: iUserPermissions
 }

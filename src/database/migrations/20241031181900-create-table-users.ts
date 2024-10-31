@@ -2,21 +2,29 @@ import { QueryInterface, DataTypes } from 'sequelize';
 
 module.exports = {
   up: async  (queryInterface: QueryInterface) => {
-    await queryInterface.createTable('labs', {
+    await queryInterface.createTable('users', {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      name: {
-        type: DataTypes.STRING, // ou DataTypes.TEXT se você espera textos longos
-        allowNull: false, // ou true, dependendo da sua necessidade
+      firstName: {
+        type: DataTypes.STRING(40),
+        allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT, // ou DataTypes.STRING se o texto não for muito longo
-        allowNull: true, // ou false, dependendo se é um campo obrigatório
+      lastName: {
+        type: DataTypes.STRING(40),
+        allowNull: false,
       },
-      createdAt: {
+      email: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        unique: true
+      },
+      password_hash: {
+        type: DataTypes.STRING(255),
+        allowNull: false
+      },      createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW, // Usando o valor padrão do Sequelize
@@ -30,6 +38,6 @@ module.exports = {
   },
 
   down: async (queryInterface:QueryInterface) =>  {
-    await queryInterface.dropTable('labs');
+    await queryInterface.dropTable('users');
   }
 };

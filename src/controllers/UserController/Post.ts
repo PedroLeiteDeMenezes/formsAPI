@@ -7,7 +7,7 @@ class PostUser {
   public static async post(req: Request, res: Response): Promise<any>{
     console.log("Recebendo requisição POST");
     try {
-      const { firstName, lastName, email, password } = req.body;
+      const { firstName, lastName, email, password, permissions } = req.body;
 
       console.log(req.body);
       
@@ -25,6 +25,7 @@ class PostUser {
         lastName: String(lastName),
         email: String(email),
         password_hash: hashedPassword,
+        permissions: permissions || {canDeleteUsers: false}
       });
       console.log('Usuário criado com sucesso:', newUser);
       return res.status(201).json(newUser);

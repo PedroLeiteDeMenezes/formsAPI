@@ -45,6 +45,17 @@ class User extends Model<IUser> implements IUser {
         permissions: {
           type: DataTypes.JSON, 
           allowNull: false,
+          defaultValue: {
+            general: {canDeleteUsers:false, canEditUsers: false},
+            self:{canDeleteOwnAccount: true, canEditOwnAccount: true}
+          },
+          get() {
+            const rawValue = this.getDataValue('permissions');
+            return typeof rawValue === 'string' ? JSON.parse(rawValue) : rawValue
+          },
+          set(value : iUserPermissions){
+            this.setDataValue('permissions', value)
+          }
         },
       },
       {

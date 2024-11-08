@@ -1,4 +1,4 @@
-import app from './app'; // Importe a aplicação configurada
+import app from './src/app'; // Importe a aplicação configurada
 const port = 3333;
 
 app.listen(port, () => {

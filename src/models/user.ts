@@ -2,6 +2,7 @@ import { Model, DataTypes, Sequelize } from 'sequelize';
 import { IUser } from '../interface/IUser';
 import bcryptjs from 'bcryptjs'
 import { iUserPermissions } from '../interface/Ipermissions';
+import { Models } from '../types/models';
 
 class User extends Model<IUser> implements IUser {
   public id!: number 
@@ -11,6 +12,13 @@ class User extends Model<IUser> implements IUser {
   public password_hash!: string;
   public password?: string;
   public permissions!: iUserPermissions ;
+
+  static associate(models: Models): void {
+    this.hasMany(models.Study, {
+      foreignKey: 'user_id',
+      as: 'study_sessions'
+    })
+  }
 
   static initialize(sequelize: Sequelize) {
     User.init(

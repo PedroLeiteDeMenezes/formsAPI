@@ -1,11 +1,14 @@
 import express from 'express';
-import { Sequelize } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 import User from '../src/models/user'; 
 import Lab from '../src/models/lab';
+import Study from '../src/models/study'
+import {Models} from '../src/types/models'
 import dotenv from 'dotenv';
 
 import userRoutes from '../src/routes/userRoute';
 import labRoutes from '../src/routes/labRoutes'
+import sessionRoutes from '../src/routes/sessionRoutes'
 
 dotenv.config();
 
@@ -31,6 +34,17 @@ app.use(express.urlencoded({ extended: true }));
 
 User.initialize(sequelize);
 Lab.initialize(sequelize);
+Study.initialize(sequelize);
+
+const models: Models = {
+  User: User,
+  Lab: Lab,
+  Study: Study
+}
+
+User.associate(models);
+Lab.associate(models);
+Study.associate(models);
 
 
 sequelize.sync().then(() => {
@@ -42,6 +56,7 @@ sequelize.sync().then(() => {
 
 app.use('/users', userRoutes);
 app.use('/lab', labRoutes);
+app.use('/session', sessionRoutes)
 
 app.listen(PORT, () => {
   console.log(`Servidor escutando na porta ${PORT}`);

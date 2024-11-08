@@ -6,10 +6,6 @@ export default class LoginValidate {
       const errors: string[] = []
       const {email, password} = data
 
-      if(!email || typeof email!== 'string' || !validator.isEmail(email)){
-        errors.push('A valid email is required')
-      }
-
       if(!password){
         errors.push('Password Is required')
       }
